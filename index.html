@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body onload="color_Shuffle(cardColor)">
+
+    <!-- Particles JS -->
+    <!-- <div id="particles-js"></div>
+    <script src="particles.js"></script>
+    <script src="app.js"></script> -->
+
+    <!-- button to start -->
+
+
+    <div class="start">
+        <button id="start">START</button>
+    </div>
+
+
+    <div class="mainRoom" id="mainRoom">
+        <!-- Computer>FlashCard -->
+        <div class="computer" id="computer">
+            <img src="./pc.png" alt="computer">
+        </div>
+
+
+        <!-- Memory Card Game Start Here  onload="color_Shuffle(cardColor)"-->
+
+        <div class="modal" id="game1">
+            <div class="x" id="x"><img src="icons/x-lg.svg" alt="x"></div>
+            <h2>Match the Same Color!</h2>
+            <div class="card_div">
+                <div class="cards" id="1" onclick="ckick_color(this)"></div>
+                <div class="cards" id="2" onclick="ckick_color(this)"></div>
+                <div class="cards" id="3" onclick="ckick_color(this)"></div>
+                <div class="cards" id="4" onclick="ckick_color(this)"></div>
+                <div class="cards" id="5" onclick="ckick_color(this)"></div>
+                <div class="cards" id="6" onclick="ckick_color(this)"></div>
+                <div class="cards" id="7" onclick="ckick_color(this)"></div>
+                <div class="cards" id="8" onclick="ckick_color(this)"></div>
+                <div class="cards" id="9" onclick="ckick_color(this)"></div>
+                <div class="cards" id="10" onclick="ckick_color(this)"></div>
+                <div class="cards" id="11" onclick="ckick_color(this)"></div>
+                <div class="cards" id="12" onclick="ckick_color(this)"></div>
+            </div>
+            <div id="checkCard" class="checkCard"></div>
+        </div>
+        <!-- Game 2 -->
+        <div id="calculator">
+            <img class="calculator" src="icons/calculator.svg" alt="calculator">
+        </div>
+    </div>
+
+
+    <!--  Background Sound-->
+    <!-- Start button click > room > table click>Shuffle Game,Sums , flexbox,Snake Games -->
+    <!-- Door to open  write animation  -->
+    <!-- icons > 1,bed,box,computer, -->
+
+
+</body>
+
+</html>
