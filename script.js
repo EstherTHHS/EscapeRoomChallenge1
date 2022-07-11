@@ -16,6 +16,11 @@ x.addEventListener("click", function() {
     game1.style.display = "none";
 });
 
+//to start the game button
+document.getElementById("restart").addEventListener("click", () => {
+    location.reload();
+});
+
 //Memory Game
 
 let cardColor = [
