@@ -12,6 +12,11 @@ computer.addEventListener("click", function() {
     game1.style.display = "block";
 });
 
+var box = document.getElementById("box");
+var flexboxPuzzleModal = document.getElementById("flexboxPuzzleModal");
+box.addEventListener("click", function() {
+    flexboxPuzzleModal.style.display = "block";
+});
 x.addEventListener("click", function() {
     game1.style.display = "none";
 });
