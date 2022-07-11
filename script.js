@@ -1,7 +1,7 @@
-var strat_button = document.getElementById("start");
+var start_button = document.getElementById("start");
 var mainRoom = document.getElementById("mainRoom");
-strat_button.addEventListener("click", function() {
-    strat_button.style.display = "none";
+start_button.addEventListener("click", function() {
+    start_button.style.display = "none";
     mainRoom.style.display = "block";
 });
 

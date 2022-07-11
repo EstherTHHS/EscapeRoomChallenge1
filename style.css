@@ -94,9 +94,16 @@ h2 {
     top: 40%;
 }
 
-.x {
+.close {
     position: absolute;
     right: 10%;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--darkest-blue-color);
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .calculator {
