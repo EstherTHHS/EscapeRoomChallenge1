@@ -4,14 +4,14 @@ start_button.addEventListener("click", function() {
     start_button.style.display = "none";
     mainRoom.style.display = "block";
 });
-
+//game1
 var computer = document.getElementById("computer");
 var game1 = document.getElementById("game1");
 var x = document.getElementById("x");
 computer.addEventListener("click", function() {
     game1.style.display = "block";
 });
-
+//flexbos game3
 var box = document.getElementById("box");
 var flexboxPuzzleModal = document.getElementById("flexboxPuzzleModal");
 box.addEventListener("click", function() {
