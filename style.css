@@ -23,6 +23,7 @@ body {
     width: 200px;
     height: 50px;
     border-radius: 20px;
+    border-style: none;
     font-size: 1.5rem;
     position: absolute;
     top: 50%;
@@ -71,8 +72,10 @@ body {
     height: 100%;
     /* Full height */
     overflow: auto;
+    background-color: rgb(0, 0, 0);
     /* Fallback color */
-    background-color: rgba(223, 198, 134, 0.4);
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
 }
 
 h2 {
@@ -209,13 +212,13 @@ h2 {
 .flex-menu {
     width: 100%;
     height: 25%;
-    padding: 0.5rem;
+    padding: 0.3rem;
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    color: white;
+    color: rgba(255, 255, 255, 0);
 }
 
 .flex-menu div {
@@ -225,7 +228,8 @@ h2 {
 
 .flex-menu label {
     display: inline-block;
-    padding-bottom: 0.2rem;
+    padding-bottom: 13px;
+    color: #002244;
 }
 
 .flex-menu button {
@@ -243,6 +247,7 @@ h2 {
 
 .flex-menu__items {
     background-color: darkblue;
+    padding: 4px;
     text-decoration: none;
     color: #fff;
     cursor: pointer;
@@ -263,11 +268,13 @@ h2 {
 .cube-3,
 .cube-4,
 .cube-5 {
+    /* position: relative; */
     width: 75px;
     height: 75px;
-    padding: 25px;
+    /* padding: 25px; */
     transform-style: preserve-3d;
     transform: translateZ(-360px) rotate(65deg) rotateZ(75deg);
+    transition: all 2s ease-in-out;
 }
 
 .side {
