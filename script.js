@@ -11,12 +11,7 @@ var x = document.getElementById("x");
 computer.addEventListener("click", function() {
     game1.style.display = "block";
 });
-//flexbos game3
-var box = document.getElementById("box");
-var flexboxPuzzleModal = document.getElementById("flexboxPuzzleModal");
-box.addEventListener("click", function() {
-    flexboxPuzzleModal.style.display = "block";
-});
+
 x.addEventListener("click", function() {
     game1.style.display = "none";
 });
@@ -93,5 +88,86 @@ function ckick_color(obj) {
     if (count == 6) {
         document.getElementById("checkCard").innerHTML = "You Solved It!";
         // return true;
+    }
+}
+
+//flexbos game3
+var box = document.getElementById("box");
+var flexboxPuzzleModal = document.getElementById("flexboxPuzzleModal");
+box.addEventListener("click", function() {
+    flexboxPuzzleModal.style.display = "block";
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(e) {
+    if (e.target == flexboxPuzzleModal) {
+        flexboxPuzzleModal.style.display = "none";
+    }
+};
+
+//define variable for game3 flexbox
+
+let i = 0;
+let displayFlex = document.getElementById("flexDisplay");
+let changeFlexDir = document.getElementById("flexDirectn");
+let fJustCont = document.getElementById("flexJustCont");
+let fAlign = document.getElementById("flexAlignItems");
+let cubes = document.getElementsByClassName("cubes");
+const containerClass = document.getElementsByClassName("flexPuzzle-container");
+const flexDirectionsArray = ["row", "row-reverse", "column", "column-reverse"];
+const flexJustyContentArray = [
+    "flex-start",
+    "flex-end",
+    "center",
+    "space-between",
+    "space-evenly",
+];
+
+const flexAlignArray = [
+    "stretch",
+    "center",
+    "flex-start",
+    "fles-end",
+    "baseline",
+];
+
+//eventlistener
+
+displayFlex.addEventListener("click", function() {
+    if (containerClass[0].style.display == "block") {
+        containerClass[0].style.display = "flex";
+        displayFlex.innerHTML = "Flex";
+
+        //add space on cubes when flex is on
+        for (i = 0; i < 5; i++) {
+            cubes[i].style.padding = "125px";
+        }
+    } else {
+        containerClass[0].style.display = "block";
+        displayFlex.innerHTML = "Flex Display ";
+
+        //bring back original padding size on each cube
+        for (i = 0; i < 5; i++) {
+            cubes[i].style.padding = "15px";
+        }
+    }
+    checkPuzzle();
+});
+
+function checkPuzzle() {
+    if (displayFlex.innerHTML === "Flex") {
+        document.querySelectorAll(".top")[0].style.background = "#7b1346";
+        document.querySelectorAll(".bottom")[0].style.background = "#7b1346";
+        document.querySelectorAll(".front")[0].style.background = "#7b1346";
+        document.querySelectorAll(".back")[0].style.background = "#7b1346";
+        document.querySelectorAll(".left")[0].style.background = "#7b1346";
+        document.querySelectorAll(".right")[0].style.background = "#7b1346";
+    } else {
+        document.querySelectorAll(".top")[0].style.background = "#371b58";
+        document.querySelectorAll(".bottom")[0].style.background = "#371b58";
+        document.querySelectorAll(".front")[0].style.background = "#371b58";
+        document.querySelectorAll(".back")[0].style.background = "#371b58";
+        document.querySelectorAll(".left")[0].style.background = "#371b58";
+        document.querySelectorAll(".right")[0].style.background = "#371b58";
     }
 }
