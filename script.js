@@ -606,13 +606,15 @@ function checkAllButtons() {
 }
 
 verifyOverall();
+document.getElementById("dooropen").style.opacity = "0";
 
 function verifyOverall() {
     if (memorygame == true && mathPuzzleSolved == true && flexQuiz == true) {
         setTimeout(() => {
             alert("You May Escaped Now!");
-            document.getElementById("door").style.opacity = "0";
-        }, 3000);
+            document.getElementById("doorclose").style.opacity = "0";
+            document.getElementById("dooropen").style.opacity = "1";
+        }, 1000);
     }
 }
 
