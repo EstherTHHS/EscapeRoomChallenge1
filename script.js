@@ -22,7 +22,7 @@ document.getElementById("restart").addEventListener("click", () => {
 });
 
 //Memory Game
-
+var memorygame = false;
 let cardColor = [
     "#990000",
     "#00FFAB",
@@ -87,7 +87,8 @@ function ckick_color(obj) {
     }
     if (count == 6) {
         document.getElementById("checkCard").innerHTML = "You Solved It!";
-        // return true;
+        memorygame = true;
+        verifyOverall();
     }
 }
 
@@ -318,6 +319,7 @@ function end() {
     if (sumtotal == position7) {
         winsms();
         mathPuzzleSolved = true;
+        verifyOverall();
     } else {
         wrongsms();
         reset();
@@ -360,6 +362,8 @@ document
     .addEventListener("click", minusclick, false);
 
 //flexbos game3
+
+var flexQuiz = false;
 var box = document.getElementById("box");
 var flexboxPuzzleModal = document.getElementById("flexboxPuzzleModal");
 box.addEventListener("click", function() {
@@ -589,6 +593,8 @@ function checkAllButtons() {
         document.querySelectorAll(".right")[2].style.background = "#7b1346";
         noti.innerHTML = "Well done! You've solved it!";
         noti.style.color = "#7b1346";
+        flexQuiz = true;
+        verifyOverall();
     } else {
         document.querySelectorAll(".top")[2].style.background = "#371b58";
         document.querySelectorAll(".bottom")[2].style.background = "#371b58";
@@ -598,3 +604,26 @@ function checkAllButtons() {
         document.querySelectorAll(".right")[2].style.background = "#371b58";
     }
 }
+
+verifyOverall();
+
+function verifyOverall() {
+    if (memorygame == true && mathPuzzleSolved == true && flexQuiz == true) {
+        setTimeout(() => {
+            alert("You May Escaped Now!");
+            document.getElementById("door").style.opacity = "0";
+        }, 3000);
+    }
+}
+
+// var haveEscaped;
+
+// function escapeNow() {
+//   haveEscaped = setTimeout(function() {
+//     //  replace door with opened version
+//     document.getElementById("door").style.opacity = "0";
+//     document.getElementById("open-door").style.opacity = "1";
+//     // window.alert("You may now escape!");
+//     document.getElementById("escaped").style.visibility = "visible";
+//   }, 750);
+// }
