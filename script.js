@@ -91,6 +91,274 @@ function ckick_color(obj) {
     }
 }
 
+//game2 start
+
+// game2
+var mathPuzzleSolved = false;
+var calculator = document.getElementById("calculator");
+var game2 = document.getElementById("game2");
+var x = document.getElementById("cross");
+
+calculator.addEventListener("click", function() {
+    game2.style.display = "grid";
+});
+
+x.addEventListener("click", function() {
+    game2.style.display = "none";
+});
+var position1;
+var position2;
+var position3;
+var position4;
+var position5;
+var position6;
+var position7;
+var choice;
+var plus2 = true;
+var plus4 = true;
+var sumtotal;
+var choicecorrect;
+
+function incorrectsms() {
+    document.getElementById("message").innerHTML =
+        "Sorry your choice is incorrect!";
+}
+
+function fullsms() {
+    document.getElementById("message").innerHTML =
+        "Sorry,there are no more position to fill!";
+}
+
+function winsms() {
+    document.getElementById("message").innerHTML = "OMG,YOU DID IT!";
+}
+
+function wrongsms() {
+    document.getElementById("message").innerHTML = "Oh no,Try again!";
+}
+
+function reset() {
+    position1 = void 0;
+    position2 = void 0;
+    position3 = void 0;
+    position4 = void 0;
+    position5 = void 0;
+    position7 = void 0;
+    document.getElementById("num1").innerHTML = "Number";
+    document.getElementById("num2").innerHTML = "Sign";
+    document.getElementById("num3").innerHTML = "Number";
+    document.getElementById("num4").innerHTML = "Sign";
+    document.getElementById("num5").innerHTML = "Number";
+    document.getElementById("num7").innerHTML = "Number";
+}
+
+function checknumber(x) {
+    for (let i = 0; i < 10; i++) {
+        if (x == i) {
+            var y = true;
+            return y;
+            i = 10;
+        } else {
+            var y = false;
+        }
+    }
+    return y;
+}
+
+function checksign(x) {
+    if (x == "+" || x == "-") {
+        var y = true;
+    } else {
+        var y = false;
+    }
+    return y;
+}
+
+function assignposition1() {
+    choicecorrect = checknumber(choice);
+    if (choicecorrect == true) {
+        position1 = choice;
+        document.getElementById("num1").innerHTML = position1;
+    } else {
+        incorrectsms();
+    }
+}
+
+function assignposition2() {
+    choicecorrect = checksign(choice);
+    if (choicecorrect == true) {
+        position2 = choice;
+        document.getElementById("num2").innerHTML = choice;
+        if (choice == "-") {
+            plus2 = false;
+        }
+    } else {
+        incorrectsms();
+    }
+}
+
+function assignposition3() {
+    choicecorrect = checknumber(choice);
+    if (choicecorrect == true) {
+        position3 = choice;
+        document.getElementById("num3").innerHTML = choice;
+    } else {
+        incorrectsms();
+    }
+}
+
+function assignposition4() {
+    choicecorrect = checksign(choice);
+    if (choicecorrect == true) {
+        position4 = choice;
+        document.getElementById("num4").innerHTML = choice;
+        if (choice == "-") {
+            plus4 = false;
+        }
+    } else {
+        incorrectsms();
+    }
+}
+
+function assignposition5() {
+    choicecorrect = checknumber(choice);
+    if (choicecorrect == true) {
+        position5 = choice;
+        document.getElementById("num5").innerHTML = choice;
+    } else {
+        incorrectsms();
+    }
+}
+
+function assignposition7() {
+    choicecorrect = checknumber(choice);
+    if (choicecorrect == true) {
+        position7 = choice;
+        document.getElementById("num7").innerHTML = choice;
+        calculatesum();
+    } else {
+        incorrectsms();
+    }
+}
+
+function oneclick() {
+    choice = 1;
+    emptyposition();
+}
+
+function twoclick() {
+    choice = 2;
+    emptyposition();
+}
+
+function threeclick() {
+    choice = 3;
+    emptyposition();
+}
+
+function fourclick() {
+    choice = 4;
+    emptyposition();
+}
+
+function fiveclick() {
+    choice = 5;
+    emptyposition();
+}
+
+function sixclick() {
+    choice = 6;
+    emptyposition();
+}
+
+function sevenclick() {
+    choice = 7;
+    emptyposition();
+}
+
+function eightclick() {
+    choice = 8;
+    emptyposition();
+}
+
+function nineclick() {
+    choice = 9;
+    emptyposition();
+}
+
+function zeroclick() {
+    choice = 0;
+    emptyposition();
+}
+
+function plusclick() {
+    choice = "+";
+    emptyposition();
+}
+
+function minusclick() {
+    choice = "-";
+    emptyposition();
+}
+
+function calculatesum() {
+    if (plus2 == true && plus4 == true)
+        sumtotal = position1 + position3 + position5;
+    else if (plus2 == true && plus4 == false)
+        sumtotal = position1 + position3 - position5;
+    else if (plus2 == false && plus4 == true)
+        sumtotal = position1 - position3 + position5;
+    else if (plus2 == false && plus4 == false) {
+        sumtotal = position1 - position3 - position5;
+    }
+    end();
+}
+
+function end() {
+    if (sumtotal == position7) {
+        winsms();
+        mathPuzzleSolved = true;
+    } else {
+        wrongsms();
+        reset();
+    }
+}
+
+function emptyposition() {
+    if (position1 == undefined) {
+        assignposition1();
+    } else if (position2 == undefined) assignposition2();
+    else if (position3 == undefined) assignposition3();
+    else if (position4 == undefined) assignposition4();
+    else if (position5 == undefined) assignposition5();
+    else if (position7 == undefined) assignposition7();
+    else fullsms();
+}
+
+// //var q1 = document.forms["quiz"]["q1"].value;
+// //document.forms[0].id;
+// //let id = document.forms[0].id;
+document.getElementById("sumone").addEventListener("click", oneclick, false);
+document.getElementById("sumtwo").addEventListener("click", twoclick, false);
+document
+    .getElementById("sumthree")
+    .addEventListener("click", threeclick, false);
+document.getElementById("sumfour").addEventListener("click", fourclick, false);
+document.getElementById("sumfive").addEventListener("click", fiveclick, false);
+document.getElementById("sumsix").addEventListener("click", sixclick, false);
+document
+    .getElementById("sumseven")
+    .addEventListener("click", sevenclick, false);
+document
+    .getElementById("sumeight")
+    .addEventListener("click", eightclick, false);
+document.getElementById("sumnine").addEventListener("click", nineclick, false);
+document.getElementById("sumzero").addEventListener("click", zeroclick, false);
+document.getElementById("sumplus").addEventListener("click", plusclick, false);
+document
+    .getElementById("summinus")
+    .addEventListener("click", minusclick, false);
+
 //flexbos game3
 var box = document.getElementById("box");
 var flexboxPuzzleModal = document.getElementById("flexboxPuzzleModal");
@@ -105,8 +373,13 @@ window.onclick = function(e) {
     }
 };
 
-//define variable for game3 flexbox
+var close = document.getElementById("close-flexboxpuzzle");
+close.addEventListener("click", function() {
+    flexboxPuzzleModal.style.display = "none";
+});
 
+//define variable for game3 flexbox
+// let modalContent = document.getElementsByClassName("modal-content");
 let i = 0;
 let displayFlex = document.getElementById("flexDisplay");
 let changeFlexDir = document.getElementById("flexDirectn");
@@ -170,7 +443,7 @@ changeFlexDir.addEventListener("click", function() {
             document.querySelector(".flexPuzzle-container").style.top = "1100px";
             document.querySelector(
                 "#flexboxPuzzleModal .modal-content"
-            ).style.height = "1300px";
+            ).style.height = "1500px";
         }
         if (
             document.querySelector(".flexPuzzle-container").style.flexDirection ===
@@ -178,7 +451,7 @@ changeFlexDir.addEventListener("click", function() {
         ) {
             document.querySelector(
                 "#flexboxPuzzleModal .modal-content"
-            ).style.height = "1300px";
+            ).style.height = "1500px";
         }
     }
     if (i > itemDirlength) {
@@ -196,6 +469,7 @@ let justifyItems = flexJustyContentArray.length;
 fJustCont.addEventListener("click", function() {
     if (i <= justifyItems) {
         this.textContent = flexJustyContentArray[i];
+        // modalContent.classList.add("containerWidth");
         containerClass[0].style.justifyContent = flexJustyContentArray[i];
         i++;
     }
@@ -220,7 +494,8 @@ fAlign.addEventListener("click", function() {
         i = 0;
         this.textContent = "Change Flex Direction";
         containerClass[0].style.alignItems = "flex-start";
-        midItem[2].classList.remove("itemHeight");
+        // midItem[2].classList.remove("itemHeight");
+        midItem[2].style.alignItem = "center";
     }
     checkPuzzle();
 });

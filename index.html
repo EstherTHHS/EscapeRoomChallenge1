@@ -28,7 +28,8 @@
             <!-- Memory Card Game Start Here  onload="color_Shuffle(cardColor)"-->
             <div class="modal" id="game1">
 
-                <img class="close" id="x" src="icons/x-lg.svg" alt="x">
+                <img class="close closegame2" id="x" src="icons/x-lg.svg" alt="x">
+
 
                 <h2>Match the Same Color!</h2>
                 <div class="card_div">
@@ -53,6 +54,45 @@
             <!-- Game 2 claculator png-->
             <img class="calculator" id="calculator" src="icons/calculator.svg" alt="calculator">
             <!-- Game 2  start here-->
+            <div class="modal2" id="game2">
+                <div class="close" id="cross"><img src="icons/x-lg.svg" alt="x"></div>
+                <!-- <span class="close close-flexboxpuzzle" id="cross">&times;</span> -->
+                <div id="container">
+                    <div id="main">
+                        <div id="keypad">
+                            <button class="numberButton" id="sumone">1</button>
+                            <button class="numberButton" id="sumtwo">2</button>
+                            <button class="numberButton" id="sumthree">3</button>
+                            <button class="numberButton" id="sumfour">4</button>
+                            <button class="numberButton" id="sumfive">5</button>
+                            <button class="numberButton" id="sumsix">6</button>
+                            <button class="numberButton" id="sumseven">7</button>
+                            <button class="numberButton" id="sumeight">8</button>
+                            <button class="numberButton" id="sumnine">9</button>
+                            <button class="zeroButton" id="sumzero">0</button>
+                            <button class="signButton" id="sumplus">+</button>
+                            <button class="signButton" id="summinus">-</button>
+                        </div>
+                        <div id="sum">
+                            <div class="position" id="message">
+                                ARE YOU READY TO SOLVE THIS SUM!
+                            </div>
+                            <div class="position" id="num1">Number</div>
+                            <div class="position" id="num2">Sign</div>
+                            <div class="position" id="num3">Number</div>
+                            <div class="position" id="num4">Sign</div>
+                            <div class="position" id="num5">Number</div>
+                            <div class="position" id="num6">=</div>
+                            <div class="position" id="num7">Number</div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--  end math puzzle container    -->
+
+            </div>
+            <!-- end modal content   -->
+
 
 
             <!-- game3 flexboxpng -->
@@ -63,7 +103,7 @@
 
                 <!-- Modal content -->
                 <div class="modal-content">
-                    <span class="close close-flexboxpuzzle">&times;</span>
+                    <span class="close " id="close-flexboxpuzzle">&times;</span>
 
                     <!--   Flexbox Puzzle Container   -->
                     <!--  PUZZLE GOES INSIDE HERE   -->

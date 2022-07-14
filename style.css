@@ -5,11 +5,16 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+}
+
 body {
-    height: 100vh;
+    /* height: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Cutive Mono", monospace;
 }
 
 #particles-js {
@@ -55,6 +60,7 @@ body {
 }
 
 .computer:hover {
+    cursor: pointer;
     background-color: rgba(239, 76, 122, 0.3);
 }
 
@@ -106,13 +112,14 @@ h2 {
     top: 40%;
 }
 
-.close {
+
+/* .close {
     position: absolute;
     right: 10%;
     width: auto;
-}
+ } */
 
-.close:hover {
+.closegame2:hover {
     background-color: red;
     text-decoration: none;
     cursor: pointer;
@@ -128,6 +135,86 @@ h2 {
     position: absolute;
     top: 30%;
     left: 30%;
+}
+
+.modal2 {
+    /* width: 500px;
+    height: 500px; */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(187, 94, 94);
+    background-color: rgba(253, 61, 61, 0.4);
+}
+
+#container div {
+    color: white;
+}
+
+#container button {
+    height: 150px;
+    width: 150px;
+    border-radius: 10%;
+    border: 4px solid black;
+    font-size: 30px;
+    font-weight: bold;
+    color: rebeccapurple;
+    margin: 2px 0 0 2px;
+}
+
+#main {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 50% 50%;
+}
+
+#keypad {
+    grid-column: 1;
+    width: 50%;
+    margin-left: 10%;
+}
+
+#sum {
+    grid-column: 2;
+    margin-right: 10%;
+}
+
+.numberButton {
+    background-color: transparent;
+    box-shadow: 10px 10px 5px black;
+}
+
+.zeroButton {
+    background-color: transparent;
+    box-shadow: 10px 10px 5px black;
+}
+
+.signButton {
+    background-color: transparent;
+    box-shadow: 10px 10px 5px black;
+}
+
+.position {
+    text-align: center;
+    line-height: 65px;
+    font-size: 20px;
+    padding: 10px;
+    font-weight: bold;
+    border-bottom: 1px solid blue;
+}
+
+#message {
+    line-height: normal;
+    font-size: 1.5em;
 }
 
 
@@ -176,23 +263,46 @@ h2 {
 
 #flexboxPuzzleModal .modal-content {
     background-color: #97eaeee6;
-    box-shadow: 0px 0px 30px 10px #ed80afe6;
+    box-shadow: 0px 0px 30px 10px #db5890e6;
 }
 
 
 /* Modal Content */
+
+.close {
+    color: whitesmoke;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    z-index: 100;
+    position: relative;
+}
+
+
+/* close hover for flexxboxg game2 */
+
+.close:hover,
+.close:focus {
+    /* background-color: red; */
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
     width: 100%;
-    height: 800px;
+    height: 80%;
 }
 
+
+/* changed puzzle container's width nad height */
+
 #flexbox-puzzle-container {
-    width: auto;
-    height: 100%;
+    /* width: auto; */
+    height: 700px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -213,7 +323,7 @@ h2 {
 .flex-menu {
     width: 100%;
     height: 35%;
-    padding: 0.5rem;
+    padding: 0.3rem;
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -262,12 +372,19 @@ h2 {
 .flexPuzzle-container {
     /* display: block; */
     position: absolute;
-    height: 80%;
+    height: 25%;
+    /* changed height form 100% */
     max-width: 100%;
     left: 10%;
     perspective: 1000px;
     top: 300px;
 }
+
+
+/* .containerWidth {
+    width: 50%;
+    height: 50%;
+} */
 
 .cube-1,
 .cube-2,
@@ -277,7 +394,7 @@ h2 {
     /* position: relative; */
     width: 75px;
     height: 75px;
-    /* padding: 25px; */
+    padding: 15px;
     transform-style: preserve-3d;
     transform: translateZ(-360px) rotate(65deg) rotateZ(75deg);
     transition: all 2s ease-in-out;
@@ -322,3 +439,6 @@ h2 {
     transform: rotateX(-90deg) translateZ(35px);
     transition: all 0.5s ease-in-out;
 }
+
+
+/* game2 */
