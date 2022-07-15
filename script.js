@@ -624,6 +624,7 @@ function checkAllButtons() {
         notification.innerHTML = "Well done! You've solved it!";
         notification.style.color = "#0d4383";
         flexQuiz = true;
+        verifyOverall();
     } else {
         document.querySelectorAll(".front")[2].style.backgroundColor = "#0c4383";
         // document.querySelectorAll('.side')[2].style.backgroundColor = '#0c4383';
