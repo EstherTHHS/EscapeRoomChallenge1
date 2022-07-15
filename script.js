@@ -1,7 +1,9 @@
 var start_button = document.getElementById("start");
 var mainRoom = document.getElementById("mainRoom");
+var intro=document.getElementById("intro");
 start_button.addEventListener("click", function() {
     start_button.style.display = "none";
+    intro.style.display="none";
     mainRoom.style.display = "block";
 });
 //game1
@@ -434,7 +436,7 @@ displayFlex.addEventListener("click", function() {
 });
 
 let directionOfFlex = document.getElementById("flexDirectn");
-const flexDirections = ["row", "row-reverse", "column", "column-reverse"];
+const flexDirections = ["row", "row-reverse","column","column-reverse"];
 
 let itemLength = flexDirections.length;
 directionOfFlex.addEventListener("click", function() {
@@ -450,10 +452,10 @@ directionOfFlex.addEventListener("click", function() {
             document.querySelector(".flexPuzzle-container").style.flexDirection ===
             "column-reverse"
         ) {
-            document.querySelector(".flexPuzzle-container").style.top = "1100px";
+            document.querySelector(".flexPuzzle-container").style.top = "1000px";
             document.querySelector(
                 "#flexboxPuzzleModal .modal-content"
-            ).style.height = "1300px";
+            ).style.height = "1800px";
         }
 
         if (
@@ -462,7 +464,7 @@ directionOfFlex.addEventListener("click", function() {
         ) {
             document.querySelector(
                 "#flexboxPuzzleModal .modal-content"
-            ).style.height = "1300px";
+            ).style.height = "1800px";
         }
     }
 
