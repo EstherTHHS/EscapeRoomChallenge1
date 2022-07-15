@@ -24,7 +24,7 @@
 
         <div class="mainRoom" id="mainRoom">
             <!-- Computer>FlashCard -->
-            <img class="computer" id="computer" src="./pc.png" alt="computer">
+            <img class="computer" id="computer" src="icons/pc.svg" alt="computer">
             <!-- Memory Card Game Start Here  onload="color_Shuffle(cardColor)"-->
             <div class="modal" id="game1">
 
@@ -103,77 +103,85 @@
 
                 <!-- Modal content -->
                 <div class="modal-content">
-                    <span class="close " id="close-flexboxpuzzle">&times;</span>
+                    <span class="close close-flexboxpuzzle" id="btn">&times;</span>
 
                     <!--   Flexbox Puzzle Container   -->
                     <!--  PUZZLE GOES INSIDE HERE   -->
                     <div id="flexbox-puzzle-container">
 
                         <div>
+                            <header class="heading">
+                                <p class="heading__rules">
+                                    Use the buttons to rearrange the boxes and find the correct alignment!<br> The box color will change and indicate if you're getting hot or cold.
+                                    <br><br>
+                                </p>
 
-                            <div class="notification" id="noti">Start with turning on "Display Flex"</div>
-                            <div class="flex-menu">
-                                <div>
-                                    <label for="flexDisplay">Display</label>
-                                    <button class="flex-menu__items" id="flexDisplay">Display Flex </button>
+                                <p class="heading__subtitle"></p>
+                                <div><span class="notification">Start with turning on "Display Flex"</span></div>
+                                <!-- </header> -->
+                                <div class="flex-menu">
+                                    <div>
+                                        <label for="flexDisplay">Display</label>
+                                        <button class="flex-menu__items" id="flexDisplay">Display Flex </button>
+                                    </div>
+                                    <div>
+                                        <label for="flexDirectn">Flex Direction</label>
+                                        <button class="flex-menu__items" id="flexDirectn">Change Flex Direction</button>
+                                    </div>
+                                    <div>
+                                        <label for="flexJustCont">Justify-Content</label>
+                                        <button class="flex-menu__items" id="flexJustCont">Justify Content</button>
+                                    </div>
+                                    <div>
+                                        <label for="flexAlignItems">Align-Items</label>
+                                        <button class="flex-menu__items" id="flexAlignItems">Align Items</button>
+                                    </div>
                                 </div>
-                                <div>
-                                    <label for="flexDirectn">Flex Direction</label>
-                                    <button class="flex-menu__items" id="flexDirectn">Change Flex Direction</button>
-                                </div>
-                                <div>
-                                    <label for="flexJustCont">Justify-Content</label>
-                                    <button class="flex-menu__items" id="flexJustCont">Justify Content</button>
-                                </div>
-                                <div>
-                                    <label for="flexAlignItems">Align-Items</label>
-                                    <button class="flex-menu__items" id="flexAlignItems">Align Items</button>
-                                </div>
-                            </div>
-                            <div class="flexPuzzle-container">
-                                <div class="cubes cube-1">
-                                    <div class="side top"></div>
-                                    <div class="side bottom"></div>
-                                    <div class="side front"></div>
-                                    <div class="side back"></div>
-                                    <div class="side left"></div>
-                                    <div class="side right"></div>
-                                </div>
-                                <div class="cubes cube-2">
-                                    <div class="side top"></div>
-                                    <div class="side bottom"></div>
-                                    <div class="side front"></div>
-                                    <div class="side back"></div>
-                                    <div class="side left"></div>
-                                    <div class="side right"></div>
-                                </div>
-                                <div class="cubes cube-3">
-                                    <div class="side top"></div>
-                                    <div class="side bottom"></div>
-                                    <div class="side front"></div>
-                                    <div class="side back"></div>
-                                    <div class="side left"></div>
-                                    <div class="side right"></div>
 
+                                <div class="flexPuzzle-container">
+                                    <div class="cubes cube-1">
+                                        <div class="side top"></div>
+                                        <div class="side bottom"></div>
+                                        <div class="side front"></div>
+                                        <div class="side back"></div>
+                                        <div class="side left"></div>
+                                        <div class="side right"></div>
+                                    </div>
+                                    <div class="cubes cube-2">
+                                        <div class="side top"></div>
+                                        <div class="side bottom"></div>
+                                        <div class="side front"></div>
+                                        <div class="side back"></div>
+                                        <div class="side left"></div>
+                                        <div class="side right"></div>
+                                    </div>
+                                    <div class="cubes cube-3">
+                                        <div class="side top"></div>
+                                        <div class="side bottom"></div>
+                                        <div class="side front"></div>
+                                        <div class="side back"></div>
+                                        <div class="side left"></div>
+                                        <div class="side right"></div>
+
+                                    </div>
+                                    <div class="cubes cube-4">
+                                        <div class="side top"></div>
+                                        <div class="side bottom"></div>
+                                        <div class="side front"></div>
+                                        <div class="side back"></div>
+                                        <div class="side left"></div>
+                                        <div class="side right"></div>
+                                    </div>
+                                    <div class="cubes cube-5">
+                                        <div class="side top"></div>
+                                        <div class="side bottom"></div>
+                                        <div class="side front"></div>
+                                        <div class="side back"></div>
+                                        <div class="side left"></div>
+                                        <div class="side right"></div>
+                                    </div>
                                 </div>
-                                <div class="cubes cube-4">
-                                    <div class="side top"></div>
-                                    <div class="side bottom"></div>
-                                    <div class="side front"></div>
-                                    <div class="side back"></div>
-                                    <div class="side left"></div>
-                                    <div class="side right"></div>
-                                </div>
-                                <div class="cubes cube-5">
-                                    <div class="side top"></div>
-                                    <div class="side bottom"></div>
-                                    <div class="side front"></div>
-                                    <div class="side back"></div>
-                                    <div class="side left"></div>
-                                    <div class="side right"></div>
-                                </div>
-                            </div>
-                            <!-- end flexPuzzle-container -->
+                                <!-- end flexPuzzle-container -->
                         </div>
                     </div>
                     <!--  end flexbox puzzle container    -->

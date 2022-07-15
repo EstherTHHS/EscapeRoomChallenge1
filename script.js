@@ -376,45 +376,46 @@ window.onclick = function(e) {
         flexboxPuzzleModal.style.display = "none";
     }
 };
-
-var close = document.getElementById("close-flexboxpuzzle");
-close.addEventListener("click", function() {
+//get the span element that close the game3 flexbox modal
+var closebtn = document.getElementById("btn");
+closebtn.addEventListener("click", function() {
     flexboxPuzzleModal.style.display = "none";
 });
 
 //define variable for game3 flexbox
 // let modalContent = document.getElementsByClassName("modal-content");
+//define all variables used
 let i = 0;
+let subTitle = document.getElementsByClassName("heading__subtitle");
 let displayFlex = document.getElementById("flexDisplay");
-let changeFlexDir = document.getElementById("flexDirectn");
-let fJustCont = document.getElementById("flexJustCont");
-let fAlign = document.getElementById("flexAlignItems");
+
+let justContent = document.getElementById("flexJustCont");
+let flexAlign = document.getElementById("flexAlignItems");
+let notification = document.querySelector(".notification");
 let cubes = document.getElementsByClassName("cubes");
-let noti = document.getElementById("noti");
 const containerClass = document.getElementsByClassName("flexPuzzle-container");
-const flexDirectionsArray = ["row", "row-reverse", "column", "column-reverse"];
-const flexJustyContentArray = [
+
+const flexJustifyContent = [
     "flex-start",
     "flex-end",
     "center",
     "space-between",
+    "space-around",
     "space-evenly",
 ];
-
 const flexAlignArray = [
     "stretch",
     "center",
     "flex-start",
-    "fles-end",
+    "flex-end",
     "baseline",
 ];
 
-//button eventlistener
-
+//buttons event listener
 displayFlex.addEventListener("click", function() {
     if (containerClass[0].style.display == "block") {
         containerClass[0].style.display = "flex";
-        displayFlex.innerHTML = "Flex";
+        displayFlex.innerHTML = "flex";
 
         //add space on cubes when flex is on
         for (i = 0; i < 5; i++) {
@@ -422,7 +423,7 @@ displayFlex.addEventListener("click", function() {
         }
     } else {
         containerClass[0].style.display = "block";
-        displayFlex.innerHTML = "Flex Display ";
+        displayFlex.innerHTML = "Display Flex";
 
         //bring back original padding size on each cube
         for (i = 0; i < 5; i++) {
@@ -432,14 +433,19 @@ displayFlex.addEventListener("click", function() {
     checkPuzzle();
 });
 
-let itemDirlength = flexDirectionsArray.length;
-changeFlexDir.addEventListener("click", function() {
-    // console.log(this.textContent);
+let directionOfFlex = document.getElementById("flexDirectn");
+const flexDirections = ["row", "row-reverse", "column", "column-reverse"];
 
-    if (i <= itemDirlength) {
-        this.textContent = flexDirectionsArray[i];
-        containerClass[0].style.flexDirection = flexDirectionsArray[i];
+let itemLength = flexDirections.length;
+directionOfFlex.addEventListener("click", function() {
+    // console.log(this.textContent);
+    subTitle[0].innerHTML =
+        "The flex-direction CSS property specifies how flex items are placed in the flex container defining the main axis and the direction ";
+    if (i <= itemLength) {
+        this.textContent = flexDirections[i];
+        containerClass[0].style.flexDirection = flexDirections[i];
         i++;
+
         if (
             document.querySelector(".flexPuzzle-container").style.flexDirection ===
             "column-reverse"
@@ -447,163 +453,192 @@ changeFlexDir.addEventListener("click", function() {
             document.querySelector(".flexPuzzle-container").style.top = "1100px";
             document.querySelector(
                 "#flexboxPuzzleModal .modal-content"
-            ).style.height = "1500px";
+            ).style.height = "1300px";
         }
+
         if (
             document.querySelector(".flexPuzzle-container").style.flexDirection ===
             "column"
         ) {
             document.querySelector(
                 "#flexboxPuzzleModal .modal-content"
-            ).style.height = "1500px";
+            ).style.height = "1300px";
         }
     }
-    if (i > itemDirlength) {
-        document.querySelector(".flexPuzzle-container").style.top = "300px";
+
+    if (i > itemLength) {
         document.querySelector("#flexboxPuzzleModal .modal-content").style.height =
             "745px";
+        document.querySelector(".flexPuzzle-container").style.top = "300px";
+        this.textContent = "Change Flex Direction";
         containerClass[0].style.flexDirection = "row";
-        this.textContent = "Change Flex";
         i = 0;
     }
     checkPuzzle();
 });
 
-let justifyItems = flexJustyContentArray.length;
-fJustCont.addEventListener("click", function() {
-    if (i <= justifyItems) {
-        this.textContent = flexJustyContentArray[i];
-        // modalContent.classList.add("containerWidth");
-        containerClass[0].style.justifyContent = flexJustyContentArray[i];
+let itemJustifyContLength = flexJustifyContent.length;
+justContent.addEventListener("click", function() {
+    // console.log(subTitle[0].innerHTML);
+    subTitle[0].innerHTML =
+        "justify-content property defines how the browser distributes space between and around content items along the main-axis of their container.";
+    if (i <= itemJustifyContLength) {
+        this.textContent = flexJustifyContent[i];
+        containerClass[0].style.justifyContent = flexJustifyContent[i];
         i++;
     }
-    if (i > justifyItems) {
-        i = 0;
-        this.textContent = "ChangeFlexDirection";
+    if (i > itemJustifyContLength) {
+        this.textContent = "Change Flex Direction";
         containerClass[0].style.justifyContent = "flex-start";
+        i = 0;
     }
     checkPuzzle();
 });
 
-let alignItems = flexAlignArray.length;
+let itemAlignmentArrayLen = flexAlignArray.length;
 let midItem = document.getElementsByClassName("cubes");
-fAlign.addEventListener("click", function() {
-    if (i <= alignItems) {
+flexAlign.addEventListener("click", function() {
+    // console.log(midItem[2].innerHTML);
+    subTitle[0].innerHTML =
+        "This controls the alignment of items on the Cross Axis.";
+    if (i <= itemAlignmentArrayLen) {
         this.textContent = flexAlignArray[i];
         containerClass[0].style.alignItems = flexAlignArray[i];
         i++;
     }
-
-    if (i > alignItems) {
-        i = 0;
+    if (i > itemAlignmentArrayLen) {
         this.textContent = "Change Flex Direction";
         containerClass[0].style.alignItems = "flex-start";
-        // midItem[2].classList.remove("itemHeight");
-        midItem[2].style.alignItem = "center";
+        midItem[2].classList.remove("itemHeight");
+        i = 0;
     }
     checkPuzzle();
 });
 
 function checkPuzzle() {
-    if (displayFlex.innerHTML === "Flex") {
-        document.querySelectorAll(".top")[0].style.background = "#7b1346";
-        document.querySelectorAll(".bottom")[0].style.background = "#7b1346";
-        document.querySelectorAll(".front")[0].style.background = "#7b1346";
-        document.querySelectorAll(".back")[0].style.background = "#7b1346";
-        document.querySelectorAll(".left")[0].style.background = "#7b1346";
-        document.querySelectorAll(".right")[0].style.background = "#7b1346";
+    if (displayFlex.innerHTML === "flex") {
+        document.querySelectorAll(".front")[0].style.backgroundColor = "#7b1346";
+        // document.querySelectorAll('.side')[0]].style.backgroundColor = '#7b1346';
+        document.querySelectorAll(".left")[0].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".right")[0].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".bottom")[0].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".top")[0].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".back")[0].style.backgroundColor = "#7b1346";
+        notification.innerHTML = "Keep going! Try changing flex direction now.";
+        notification.style.color = "#0c4383";
         checkDirection();
     } else {
-        document.querySelectorAll(".top")[0].style.background = "#371b58";
-        document.querySelectorAll(".bottom")[0].style.background = "#371b58";
-        document.querySelectorAll(".front")[0].style.background = "#371b58";
-        document.querySelectorAll(".back")[0].style.background = "#371b58";
-        document.querySelectorAll(".left")[0].style.background = "#371b58";
-        document.querySelectorAll(".right")[0].style.background = "#371b58";
+        document.querySelectorAll(".front")[0].style.backgroundColor = "#0c4383";
+        // document.querySelectorAll('.side')[0].style.backgroundColor = '#0c4383';
+        document.querySelectorAll(".left")[0].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".right")[0].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".bottom")[0].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".top")[0].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".back")[0].style.backgroundColor = "#0c4383";
+
+        notification.innerHTML = 'Start with turning on "Display Flex"';
+        notification.style.color = "#E6E6E6";
     }
+    // checkAllButtons();
 }
 
 function checkDirection() {
-    if (displayFlex.innerHTML === "Flex" && changeFlexDir.innerHTML === "row") {
-        document.querySelectorAll(".top")[4].style.background = "#7b1346";
-        document.querySelectorAll(".bottom")[4].style.background = "#7b1346";
-        document.querySelectorAll(".front")[4].style.background = "#7b1346";
-        document.querySelectorAll(".back")[4].style.background = "#7b1346";
-        document.querySelectorAll(".left")[4].style.background = "#7b1346";
-        document.querySelectorAll(".right")[4].style.background = "#7b1346";
-
+    if (displayFlex.innerHTML == "flex" && directionOfFlex.innerHTML == "row") {
+        document.querySelectorAll(".front")[4].style.backgroundColor = "#7b1346";
+        // document.querySelectorAll('.side')[4].style.backgroundColor = '#7b1346';
+        document.querySelectorAll(".left")[4].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".right")[4].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".bottom")[4].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".top")[4].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".back")[4].style.backgroundColor = "#7b1346";
+        notification.innerHTML = "Ok now, keep going...";
+        notification.style.color = "#0c4383";
         checkJustifyContent();
     } else {
-        document.querySelectorAll(".top")[4].style.background = "#371b58";
-        document.querySelectorAll(".bottom")[4].style.background = "#371b58";
-        document.querySelectorAll(".front")[4].style.background = "#371b58";
-        document.querySelectorAll(".back")[4].style.background = "#371b58";
-        document.querySelectorAll(".left")[4].style.background = "#371b58";
-        document.querySelectorAll(".right")[4].style.background = "#371b58";
+        document.querySelectorAll(".front")[4].style.backgroundColor = "#0c4383";
+        // document.querySelectorAll('.side')[4].style.backgroundColor = '#0c4383';
+        document.querySelectorAll(".left")[4].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".right")[4].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".bottom")[4].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".top")[4].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".back")[4].style.backgroundColor = "#0c4383";
     }
 }
 
 function checkJustifyContent() {
     if (
-        displayFlex.innerHTML === "Flex" &&
-        changeFlexDir.innerHTML === "row" &&
-        fJustCont.innerHTML === "center"
+        displayFlex.innerHTML == "flex" &&
+        directionOfFlex.innerHTML == "row" &&
+        justContent.innerHTML == "center"
     ) {
-        document.querySelectorAll(".top")[1].style.background = "#7b1346";
-        document.querySelectorAll(".bottom")[1].style.background = "#7b1346";
-        document.querySelectorAll(".front")[1].style.background = "#7b1346";
-        document.querySelectorAll(".back")[1].style.background = "#7b1346";
-        document.querySelectorAll(".left")[1].style.background = "#7b1346";
-        document.querySelectorAll(".right")[1].style.background = "#7b1346";
-        document.querySelectorAll(".top")[3].style.background = "#7b1346";
-        document.querySelectorAll(".bottom")[3].style.background = "#7b1346";
-        document.querySelectorAll(".front")[3].style.background = "#7b1346";
-        document.querySelectorAll(".back")[3].style.background = "#7b1346";
-        document.querySelectorAll(".left")[3].style.background = "#7b1346";
-        document.querySelectorAll(".right")[3].style.background = "#7b1346";
+        document.querySelectorAll(".front")[1].style.backgroundColor = "#7b1346";
+        // document.querySelectorAll('.side')[1].style.backgroundColor = '#7b1346';
+        document.querySelectorAll(".left")[1].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".right")[1].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".bottom")[1].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".top")[1].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".back")[1].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".front")[3].style.backgroundColor = "#7b1346";
+        // document.querySelectorAll('.side')[3].style.backgroundColor = '#7b1346';
+        document.querySelectorAll(".left")[3].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".right")[3].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".bottom")[3].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".top")[3].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".back")[3].style.backgroundColor = "#7b1346";
+        notification.innerHTML = "Hmm, you're getting hotter.";
+        notification.style.color = "#0d4383";
         checkAllButtons();
     } else {
-        document.querySelectorAll(".top")[1].style.background = "#371b58";
-        document.querySelectorAll(".bottom")[1].style.background = "#371b58";
-        document.querySelectorAll(".front")[1].style.background = "#371b58";
-        document.querySelectorAll(".back")[1].style.background = "#371b58";
-        document.querySelectorAll(".left")[1].style.background = "#371b58";
-        document.querySelectorAll(".right")[1].style.background = "#371b58";
-        document.querySelectorAll(".top")[3].style.background = "#371b58";
-        document.querySelectorAll(".bottom")[3].style.background = "#371b58";
-        document.querySelectorAll(".front")[3].style.background = "#371b58";
-        document.querySelectorAll(".back")[3].style.background = "#371b58";
-        document.querySelectorAll(".left")[3].style.background = "#371b58";
-        document.querySelectorAll(".right")[3].style.background = "#371b58";
+        document.querySelectorAll(".front")[1].style.backgroundColor = "#0c4383";
+        // document.querySelectorAll('.side')[1].style.backgroundColor = '#0c4383';
+        document.querySelectorAll(".left")[1].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".right")[1].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".bottom")[1].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".top")[1].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".back")[1].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".front")[3].style.backgroundColor = "#0c4383";
+        // document.querySelectorAll('.side')[3].style.backgroundColor = '#0c4383';
+        document.querySelectorAll(".left")[3].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".right")[3].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".bottom")[3].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".top")[3].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".back")[3].style.backgroundColor = "#0c4383";
+        notification.innerHTML = "Ok now, keep going...";
     }
 }
 
 function checkAllButtons() {
     if (
-        displayFlex.innerHTML === "Flex" &&
-        changeFlexDir.innerHTML === "row" &&
-        fJustCont.innerHTML === "center" &&
-        fAlign.innerHTML === "center"
+        displayFlex.innerHTML == "flex" &&
+        directionOfFlex.innerHTML == "row" &&
+        justContent.innerHTML == "center" &&
+        flexAlign.innerHTML == "center"
     ) {
-        document.querySelectorAll(".top")[2].style.background = "#7b1346";
-        document.querySelectorAll(".bottom")[2].style.background = "#7b1346";
-        document.querySelectorAll(".front")[2].style.background = "#7b1346";
-        document.querySelectorAll(".back")[2].style.background = "#7b1346";
-        document.querySelectorAll(".left")[2].style.background = "#7b1346";
-        document.querySelectorAll(".right")[2].style.background = "#7b1346";
-        noti.innerHTML = "Well done! You've solved it!";
-        noti.style.color = "#7b1346";
+        document.querySelectorAll(".front")[2].style.backgroundColor = "#7b1346";
+        // document.querySelectorAll('.side')[2].style.backgroundColor = '#7b1346';
+        document.querySelectorAll(".left")[2].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".right")[2].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".bottom")[2].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".top")[2].style.backgroundColor = "#7b1346";
+        document.querySelectorAll(".back")[2].style.backgroundColor = "#7b1346";
+        notification.innerHTML = "Well done! You've solved it!";
+        notification.style.color = "#0d4383";
         flexQuiz = true;
-        verifyOverall();
     } else {
-        document.querySelectorAll(".top")[2].style.background = "#371b58";
-        document.querySelectorAll(".bottom")[2].style.background = "#371b58";
-        document.querySelectorAll(".front")[2].style.background = "#371b58";
-        document.querySelectorAll(".back")[2].style.background = "#371b58";
-        document.querySelectorAll(".left")[2].style.background = "#371b58";
-        document.querySelectorAll(".right")[2].style.background = "#371b58";
+        document.querySelectorAll(".front")[2].style.backgroundColor = "#0c4383";
+        // document.querySelectorAll('.side')[2].style.backgroundColor = '#0c4383';
+        document.querySelectorAll(".left")[2].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".right")[2].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".bottom")[2].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".top")[2].style.backgroundColor = "#0c4383";
+        document.querySelectorAll(".back")[2].style.backgroundColor = "#0c4383";
+        notification.innerHTML = "Ok now, keep going...";
+        flexQuiz = false;
     }
+    console.log(flexQuiz);
 }
+
+//end flexbox game
 
 verifyOverall();
 document.getElementById("dooropen").style.opacity = "0";

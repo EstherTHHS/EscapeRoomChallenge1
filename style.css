@@ -21,8 +21,8 @@ body {
 #particles-js {
     width: 100%;
     height: 100vh;
-    background-color: red;
-    /* background-image: linear-gradient( to top right, #00308f, #002244, #002d62, #00308f); */
+    /* background-color: red; */
+    background-image: linear-gradient( to top right, #00308f, #002244, #002d62, #00308f);
 }
 
 .start button {
@@ -44,12 +44,10 @@ body {
 
 .mainRoom {
     /* background-color: #72a0c1; */
-    background-position: center;
-    background-repeat: no-repeat;
     width: 100%;
     height: 100vh;
     display: none;
-    position: absolute;
+    position: relative;
 }
 
 
@@ -60,6 +58,7 @@ body {
     position: absolute;
     top: 20%;
     left: 50%;
+    width: 100px;
 }
 
 .computer:hover {
@@ -68,23 +67,23 @@ body {
 }
 
 .modal {
+    /* width: 500px;
+    height: 500px; */
     display: none;
     /* Hidden by default */
     position: fixed;
     /* Stay in place */
     z-index: 1;
-    /* Sit on top  */
+    /* Sit on top */
     left: 0;
     top: 0;
     width: 100%;
     /* Full width */
     height: 100%;
-    /* Full height */
     overflow: auto;
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(148, 222, 245, 0.312);
     /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
+    background-color: rgba(243, 126, 177, 0.259);
 }
 
 h2 {
@@ -265,7 +264,7 @@ h2 {
 /* flexbox style */
 
 #flexboxPuzzleModal .modal-content {
-    background-color: #97eaeee6;
+    background-color: #c8b6e2;
     box-shadow: 0px 0px 30px 10px #db5890e6;
 }
 
@@ -297,25 +296,45 @@ h2 {
     margin: auto;
     padding: 20px;
     width: 100%;
-    height: 80%;
+    height: 100%;
 }
 
 
 /* changed puzzle container's width nad height */
 
 #flexbox-puzzle-container {
-    /* width: auto; */
-    height: 700px;
+    height: 100vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     position: relative;
 }
 
+.heading {
+    margin: 10px;
+    color: rgb(0, 0, 0);
+}
+
+.heading__rules {
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.heading__subtitle {
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+    height: 50px;
+    text-align: center;
+}
+
 .notification {
     display: block;
     width: 100%;
-    height: 30px;
+    height: 35px;
     font-size: 25px;
     margin-bottom: 30px;
     text-align: center;
@@ -325,14 +344,14 @@ h2 {
 
 .flex-menu {
     width: 100%;
-    height: 35%;
-    padding: 0.3rem;
+    height: 25%;
+    padding: 0.5rem;
     text-align: center;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    color: rgb(40, 6, 6);
+    color: white;
 }
 
 .flex-menu div {
@@ -340,15 +359,9 @@ h2 {
     flex-direction: column;
 }
 
-.flex-menu div label {
-    width: 200px;
+.flex-menu label {
     display: inline-block;
     padding-bottom: 0.5rem;
-    /* background-color: #002244; */
-    color: white;
-    position: absolute;
-    top: 30px;
-    font-size: 15px;
 }
 
 .flex-menu button {
@@ -366,7 +379,6 @@ h2 {
 
 .flex-menu__items {
     background-color: darkblue;
-    padding: 4px;
     text-decoration: none;
     color: #fff;
     cursor: pointer;
@@ -375,32 +387,23 @@ h2 {
 .flexPuzzle-container {
     /* display: block; */
     position: absolute;
-    height: 25%;
-    /* changed height form 100% */
+    height: 55%;
     max-width: 100%;
     left: 10%;
     perspective: 1000px;
     top: 300px;
 }
 
-
-/* .containerWidth {
-    width: 50%;
-    height: 50%;
-} */
-
 .cube-1,
 .cube-2,
 .cube-3,
 .cube-4,
 .cube-5 {
-    /* position: relative; */
     width: 75px;
     height: 75px;
-    padding: 15px;
+    padding: 25px;
     transform-style: preserve-3d;
     transform: translateZ(-360px) rotate(65deg) rotateZ(75deg);
-    transition: all 2s ease-in-out;
 }
 
 .side {
@@ -410,19 +413,19 @@ h2 {
 }
 
 .front {
-    background-color: #371b58;
+    background-color: blue;
     transform: rotateY(0deg) translateZ(35px);
     transition: all 0.5s ease-in-out;
 }
 
 .back {
-    background-color: #371b58;
+    background-color: blue;
     transform: rotateX(180deg) translateZ(35px);
     transition: all 0.5s ease-in-out;
 }
 
 .right {
-    background-color: #371b58;
+    background-color: blue;
     transform: rotateY(90deg) translateZ(35px);
     transition: all 0.5s ease-in-out;
 }
@@ -438,7 +441,7 @@ h2 {
 }
 
 .bottom {
-    background-color: #371b58;
+    background-color: blue;
     transform: rotateX(-90deg) translateZ(35px);
     transition: all 0.5s ease-in-out;
 }
