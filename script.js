@@ -1,9 +1,9 @@
 var start_button = document.getElementById("start");
 var mainRoom = document.getElementById("mainRoom");
-var intro=document.getElementById("intro");
+var intro = document.getElementById("intro");
 start_button.addEventListener("click", function() {
     start_button.style.display = "none";
-    intro.style.display="none";
+    intro.style.display = "none";
     mainRoom.style.display = "block";
 });
 //game1
@@ -436,13 +436,13 @@ displayFlex.addEventListener("click", function() {
 });
 
 let directionOfFlex = document.getElementById("flexDirectn");
-const flexDirections = ["row", "row-reverse","column","column-reverse"];
+const flexDirections = ["row", "row-reverse", "column", "column-reverse"];
 
 let itemLength = flexDirections.length;
 directionOfFlex.addEventListener("click", function() {
     // console.log(this.textContent);
     subTitle[0].innerHTML =
-        "The flex-direction CSS property specifies how flex items are placed in the flex container defining the main axis and the direction ";
+        "The flex-direction CSS property sets how flex items are placed in the flex container defining the main axis and the direction (normal or reversed).";
     if (i <= itemLength) {
         this.textContent = flexDirections[i];
         containerClass[0].style.flexDirection = flexDirections[i];
@@ -483,7 +483,7 @@ let itemJustifyContLength = flexJustifyContent.length;
 justContent.addEventListener("click", function() {
     // console.log(subTitle[0].innerHTML);
     subTitle[0].innerHTML =
-        "justify-content property defines how the browser distributes space between and around content items along the main-axis of their container.";
+        "The CSS justify-content property defines how the browser distributes space between and around content items along the main-axis of a flex container.";
     if (i <= itemJustifyContLength) {
         this.textContent = flexJustifyContent[i];
         containerClass[0].style.justifyContent = flexJustifyContent[i];
@@ -502,7 +502,7 @@ let midItem = document.getElementsByClassName("cubes");
 flexAlign.addEventListener("click", function() {
     // console.log(midItem[2].innerHTML);
     subTitle[0].innerHTML =
-        "This controls the alignment of items on the Cross Axis.";
+        "In Flexbox, it controls the alignment of items on the Cross Axis.";
     if (i <= itemAlignmentArrayLen) {
         this.textContent = flexAlignArray[i];
         containerClass[0].style.alignItems = flexAlignArray[i];
@@ -656,14 +656,14 @@ function verifyOverall() {
     }
 }
 
-// var haveEscaped;
+// magicicon
+var hiddenInstruction = document.getElementById("game-instruction");
+hiddenInstruction.style.display = "none";
+var magicIcon = document.getElementById("magic-icon");
+magicIcon.addEventListener("mouseover", function() {
+    hiddenInstruction.style.display = "block";
+});
 
-// function escapeNow() {
-//   haveEscaped = setTimeout(function() {
-//     //  replace door with opened version
-//     document.getElementById("door").style.opacity = "0";
-//     document.getElementById("open-door").style.opacity = "1";
-//     // window.alert("You may now escape!");
-//     document.getElementById("escaped").style.visibility = "visible";
-//   }, 750);
-// }
+magicIcon.addEventListener("mouseout", function() {
+    hiddenInstruction.style.display = "none";
+});

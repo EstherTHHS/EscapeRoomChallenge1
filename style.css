@@ -1,13 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
-
-
 * {
     margin: 0;
     padding: 0;
     overflow: hidden;
     box-sizing: border-box;
     font-family: "Permanent Marker", cursive;
-
 }
 
 html {
@@ -20,27 +17,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
-h1{
+h1 {
     /* width:300px; */
-    position:absolute;
-    top:20%;
-    left:30%;
+    position: absolute;
+    top: 20%;
+    left: 30%;
     color: #89fcf3;
     line-height: 100px;
     transform: skew(-20deg);
     padding-bottom: 60px;
-   font-size:100px;
-   font-weight:bold;
-   letter-spacing:12px;
-  
-
-
+    font-size: 100px;
+    font-weight: bold;
+    letter-spacing: 12px;
 }
-
-
 
 #particles-js {
     width: 100%;
@@ -63,7 +54,7 @@ h1{
 }
 
 .start button:hover {
-    background-color: #371b58;
+    background-image: linear-gradient(45deg, #43188f, #f4bdb1);
 }
 
 .mainRoom {
@@ -267,7 +258,7 @@ h2 {
 }
 
 .restart:hover {
-    background-color: #a10035;
+    background-image: linear-gradient(45deg, #c63176, #e1cea8);
 }
 
 
@@ -386,7 +377,6 @@ h2 {
     justify-content: space-evenly;
     align-items: center;
     color: white;
-    
 }
 
 .flex-menu div {
@@ -418,8 +408,7 @@ h2 {
     color: #fff;
     cursor: pointer;
     font-family: roboto, cursive;
-    font-size:25px;
-    
+    font-size: 25px;
 }
 
 .flexPuzzle-container {
@@ -531,3 +520,44 @@ h2 {
     width: 30px;
 }
 
+#game-instruction {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 20%;
+    right: 10%;
+    background-image: linear-gradient( 45deg, #fcc5c0, #349ac0, #e8a0bf, #e2d6af, #fef9a7);
+    text-align: center;
+    font-size: 18px;
+    padding-top: 20px;
+    border-radius: 30%;
+    color: white;
+}
+
+#magic-icon {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 50%;
+    left: 25%;
+}
+
+#magic-icon:hover {
+    cursor: pointer;
+}
+
+.boxes_icon {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    bottom: 40%;
+    right: 17%;
+}
+
+.calendar {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 10%;
+    right: 7%;
+}
