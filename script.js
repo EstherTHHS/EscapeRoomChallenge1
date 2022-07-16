@@ -5,6 +5,8 @@ start_button.addEventListener("click", function() {
     start_button.style.display = "none";
     intro.style.display = "none";
     mainRoom.style.display = "block";
+    gameaudio.style.display = "block";
+    playpause();
 });
 //game1
 var computer = document.getElementById("computer");
@@ -18,7 +20,7 @@ x.addEventListener("click", function() {
     game1.style.display = "none";
 });
 
-//to start the game button
+//to restart the game button
 document.getElementById("restart").addEventListener("click", () => {
     location.reload();
 });
@@ -650,6 +652,7 @@ function verifyOverall() {
     if (memorygame == true && mathPuzzleSolved == true && flexQuiz == true) {
         setTimeout(() => {
             alert("You May Escaped Now!");
+            clearInterval(count_timer);
             document.getElementById("doorclose").style.opacity = "0";
             document.getElementById("dooropen").style.opacity = "1";
         }, 1000);
@@ -667,3 +670,72 @@ magicIcon.addEventListener("mouseover", function() {
 magicIcon.addEventListener("mouseout", function() {
     hiddenInstruction.style.display = "none";
 });
+
+//countdowntimer start
+var validtime = false;
+const startMinute = 2;
+var time = startMinute * 60;
+var countdownEl = document.getElementById("countdown");
+var count_timer = setInterval(() => {
+    updateCount();
+}, 1000);
+
+setTimeout(() => {
+    clearInterval(count_timer);
+    validtime = true;
+    gameOver();
+}, 121000);
+
+function updateCount() {
+    const minutes = Math.floor(time / 60);
+    let second = time % 60;
+    second = second < 5 ? "0" + second : second;
+    countdownEl.innerHTML = `${minutes}:${second}`;
+    time--;
+    gameOver();
+    if (time == 0) {
+        time = 0;
+    }
+}
+
+function gameOver() {
+    if (
+        validtime == true &&
+        memorygame == false &&
+        mathPuzzleSolved == false &&
+        flexQuiz == false
+    ) {
+        alert("Game Over");
+        document.getElementById("doorclose").style.opacity = "1";
+        document.getElementById("dooropen").style.opacity = "0";
+
+        computer.addEventListener("click", function() {
+            game1.style.display = "none";
+        });
+        calculator.addEventListener("click", function() {
+            game2.style.display = "none";
+        });
+        box.addEventListener("click", function() {
+            flexboxPuzzleModal.style.display = "none";
+        });
+    }
+}
+
+// audio
+var gameaudio = document.getElementById("audiogame");
+gameaudio.style.display = "none";
+var audio = document.getElementById("audio");
+var playpausebtn = document.getElementById("playpausebtn");
+var count = 0;
+
+function playpause() {
+    if (count == 0) {
+        count = 1;
+        audio.play();
+        playpausebtn.innerHTML = "Pause &#9208;";
+    } else {
+        count = 0;
+        audio.pause();
+        playpausebtn.innerHTML = "Play &#9658;";
+    }
+}

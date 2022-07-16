@@ -482,6 +482,7 @@ h2 {
     position: absolute;
     bottom: 45%;
     left: 64%;
+    animation: magicRotate 7s linear infinite;
 }
 
 .plant {
@@ -490,6 +491,7 @@ h2 {
     position: absolute;
     bottom: 40%;
     left: 20%;
+    animation: plantanimate 3s linear infinite;
 }
 
 .work {
@@ -506,6 +508,11 @@ h2 {
     position: absolute;
     top: 15%;
     left: 35%;
+    transition: all 1s linear;
+}
+
+.window:hover {
+    transform: scale(0.5);
 }
 
 .pngkey {
@@ -561,3 +568,95 @@ h2 {
     top: 10%;
     right: 7%;
 }
+
+
+/* countdown */
+
+#countdown {
+    font-size: 40px;
+    height: 60px;
+    width: 150px;
+    position: absolute;
+    top: 2%;
+    left: 5%;
+    background: linear-gradient(to right bottom, #273c75, #079992, #c8b6e2);
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* audio */
+
+#playpausebtn {
+    position: absolute;
+    top: 2%;
+    right: 5%;
+    padding: 10px 25px;
+    font-size: 22px;
+    line-height: 40px;
+    min-width: 150px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    background: linear-gradient(to right bottom, #273c75, #079992, #c8b6e2);
+    color: #fff;
+    border: 0px;
+    height: 60px;
+}
+
+@keyframes plantanimate {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.5);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes magicRotate {
+    0% {
+        transform: translateX(100px);
+    }
+    25% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(-100px);
+    }
+    75% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(100px);
+    }
+}
+
+
+/* @keyframes animate3 {
+    0% {
+        transform: skewX(0deg);
+    }
+    25% {
+        transform: skewX(20deg);
+    }
+    50% {
+        transform: skewX(-20deg);
+    }
+    75% {
+        transform: skewX(20deg);
+    }
+    100% {
+        transform: skewX(-20deg);
+    }
+} */
