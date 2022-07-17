@@ -699,43 +699,138 @@ function updateCount() {
 }
 
 function gameOver() {
+
     if (
-        validtime == true &&
-        memorygame == false &&
-        mathPuzzleSolved == false &&
-        flexQuiz == false
+      checkingone == false ||
+      checkingtwo == false ||
+      checkingthree == false ||
+      checkingfour == false ||
+      checkingfive == false ||
+      checkingsix == false ||
+      checkingseven == false
     ) {
-        alert("Game Over");
-        document.getElementById("doorclose").style.opacity = "1";
-        document.getElementById("dooropen").style.opacity = "0";
-
-        computer.addEventListener("click", function() {
-            game1.style.display = "none";
-        });
-        calculator.addEventListener("click", function() {
-            game2.style.display = "none";
-        });
-        box.addEventListener("click", function() {
-            flexboxPuzzleModal.style.display = "none";
-        });
+      alert("Game Over");
+      document.getElementById("doorclose").style.opacity = "1";
+      document.getElementById("dooropen").style.opacity = "0";
+  
+      computer.addEventListener("click", function () {
+        game1.style.display = "none";
+      });
+      calculator.addEventListener("click", function () {
+        game2.style.display = "none";
+      });
+      box.addEventListener("click", function () {
+        flexboxPuzzleModal.style.display = "none";
+      });
+    }else{
+    checking1();
     }
-}
-
-// audio
-var gameaudio = document.getElementById("audiogame");
-gameaudio.style.display = "none";
-var audio = document.getElementById("audio");
-var playpausebtn = document.getElementById("playpausebtn");
-var count = 0;
-
-function playpause() {
+  }
+  
+  // audio
+  var gameaudio = document.getElementById("audiogame");
+  gameaudio.style.display = "none";
+  var audio = document.getElementById("audio");
+  var playpausebtn = document.getElementById("playpausebtn");
+  var count = 0;
+  var checkingone = true;
+  var checkingtwo = true;
+  var checkingthree = true;
+  var checkingfour = true;
+  var checkingfive = true;
+  var checkingsix = true;
+  var checkingseven = true;
+  
+  function playpause() {
     if (count == 0) {
-        count = 1;
-        audio.play();
-        playpausebtn.innerHTML = "Pause &#9208;";
+      count = 1;
+      audio.play();
+      playpausebtn.innerHTML = "Pause &#9208;";
     } else {
-        count = 0;
-        audio.pause();
-        playpausebtn.innerHTML = "Play &#9658;";
+      count = 0;
+      audio.pause();
+      playpausebtn.innerHTML = "Play &#9658;";
     }
-}
+  }
+  function checking1() {
+    if (
+      validtime == true &&
+      memorygame == false &&
+      mathPuzzleSolved == true &&
+      flexQuiz == true
+    ) {
+      checkingone = false;
+    }
+    checking2();
+  }
+  function checking2() {
+    if (
+      validtime == true &&
+      memorygame == true &&
+      mathPuzzleSolved == false &&
+      flexQuiz == true
+    ) {
+      checkingtwo = false;
+    }
+    checking3();
+  
+  }
+  function checking3() {
+    if (
+      validtime == true &&
+      memorygame == true &&
+      mathPuzzleSolved == true &&
+      flexQuiz == false
+    ) {
+      checkingthree = false;
+    }
+    checking4();
+  
+  }
+  function checking4() {
+    if (
+      validtime == true &&
+      memorygame == true &&
+      mathPuzzleSolved == false &&
+      flexQuiz == false
+    ) {
+      checkingfour = false;
+    }
+    checking5();
+  
+  }
+  function checking5() {
+    if (
+      validtime == true &&
+      memorygame == false &&
+      mathPuzzleSolved == true &&
+      flexQuiz == false
+    ) {
+      checkingfive = false;
+    }
+    checking6();
+  
+  }
+  function checking6() {
+    if (
+      validtime == true &&
+      memorygame == false &&
+      mathPuzzleSolved == false &&
+      flexQuiz == true
+    ) {
+      checkingsix = false;
+    }
+    checking7();
+  }
+  function checking7() {
+    if (
+      validtime == true &&
+      memorygame == false &&
+      mathPuzzleSolved == false &&
+      flexQuiz == false
+    ) {
+      checkingseven = false;
+    }
+    gameOver();
+  }
+  
